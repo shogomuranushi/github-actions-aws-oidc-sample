@@ -16,7 +16,7 @@ locals {
   # Please change here
   github_oidc_domain = "token.actions.githubusercontent.com"
   # Please change here
-  reponame = "abeja-inc/github-actions-aws-oidc-sample"
+  reponame = "shogomuranushi/github-actions-aws-oidc-sample"
 }
 
 # IAM Role
