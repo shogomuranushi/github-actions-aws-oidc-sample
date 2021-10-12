@@ -1,0 +1,27 @@
+name: Example
+on:
+  push:
+    branches:
+      - "master"
+
+env:
+  # Please change here
+  aws_account_id: ''
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - run: sleep 5
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-region: ap-northeast-1
+          role-to-assume: arn:aws:iam::${{ env.aws_account_id }}:role/GitHubActions
+          role-session-name: GitHubActions
+
+      - run: aws sts get-caller-identity
